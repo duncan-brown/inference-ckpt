@@ -18,8 +18,7 @@ pycbc_make_inference_inj_workflow \
     --output-file ${workflow_name}.dax \
     --inference-config-file pisn_inference_${TAG}_eoc.ini \
     --config-files workflow_${TAG}_${SEED}_eoc.ini \
-    --config-overrides "results_page:output-path:${PWD}/${output_dir}/results_html" "pegasus_profile-inference:pegasus|gridstart:NoGridStart" "pegasus_profile-inference:condor|+WantBadgers:True" \
-    --inj-seed ${SEED}
+    --config-overrides "results_page:output-path:${PWD}/${output_dir}/results_html"
 
 pushd ${output_dir}
 pycbc_submit_dax \
