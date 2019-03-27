@@ -1,0 +1,35 @@
+universe = vanilla
+getenv = True
+executable = run_pycbc_inference.sh
+arguments = inference.ini output.hdf
+
+request_cpus = 4
+request_memory = 1G
+
+error = logs/$(Cluster).err
+output = logs/$(Cluster).out
+log = logs/$(Cluster).log
+
+stream_error = True
+stream_input = True
+stream_output = True
+
+should_transfer_files = yes
+transfer_input_files = inference.ini
+transfer_output_files = output.hdf, output.hdf.checkpoint, output.hdf.bkup
+when_to_transfer_output = ON_EXIT_OR_EVICT
+
++CheckpointExitBySignal = True
++CheckpointExitSignal = 12
++SuccessCheckpointExitBySignal = True
++SuccessCheckpointExitSignal = 12
+
+#+WantCheckpointSignal = True
++WantFTOnCheckpoint = True
++CheckpointSig = 12
+
+accounting_group = sugwg.astro
+
+batch_name = checkpoint_condor_test
+
+queue
