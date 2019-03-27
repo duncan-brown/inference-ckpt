@@ -28,6 +28,8 @@ when_to_transfer_output = ON_EXIT_OR_EVICT
 +WantFTOnCheckpoint = True
 +CheckpointSig = 12
 
+periodic_remove = (HoldReasonCode is 13)
+
 accounting_group = sugwg.astro
 
 batch_name = checkpoint_condor_test
