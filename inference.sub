@@ -16,7 +16,7 @@ stream_output = True
 
 should_transfer_files = yes
 transfer_input_files = inference.ini
-transfer_output_files = output.hdf, output.hdf.checkpoint, output.hdf.bkup
+transfer_output_files = output.hdf, output.hdf.checkpoint
 when_to_transfer_output = ON_EXIT_OR_EVICT
 
 +CheckpointExitBySignal = True
